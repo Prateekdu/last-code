@@ -1,0 +1,49 @@
+<form [formGroup]="foodRef" (ngSubmit)="findByFid()" id="viewfood1">
+    <label>Id</label>
+    <input type="number" formControlName="pid"><br/>
+    <input type="submit" value="search by FId"/>
+
+</form>
+
+<div *ngIf="flag2">
+
+<span *ngFor="let f of foods" >
+
+
+<img src={{f.url}} width="150px" height="150px"/><br/>
+<app-razorpay></app-razorpay><br/>
+<span style="font-size: 15px;">{{f.name}} <br/>{{f.price}} <br/>{{f.offer}} <br/>{{f.description}} <br/> </span>
+ 
+<!-- <input type="button" value="Add to cart"/> -->
+
+</span>
+</div>
+<div *ngIf="flag1" >
+<span *ngFor="let f1 of foods1" >
+
+
+<img src={{f1.url}} width="150px" height="150px"/>
+<app-razorpay></app-razorpay><br/>
+<span>{{f1.name}} <br/>{{f1.price}} <br/>{{f1.offer}}<br/> {{f1.description}}  <br/></span>
+<!-- <input type="button" value="Add to cart"/> -->
+</span>
+</div>
+
+<form [formGroup]="foodRef" (ngSubmit)="findByName()" id="viewfood2">
+<label>Name</label>
+<input type="text" formControlName="pname"><br/>
+<input type="submit" value="search by name"/>
+
+</form>
+<div *ngIf="flag3">
+<span *ngFor="let f2 of foods2">
+
+    
+    <img src={{f2.url}} width="150px" height="150px"/>
+    <app-razorpay></app-razorpay>
+    <br/>
+    <span>{{f2.name}} <br/>{{f2.price}} <br/>{{f2.offer}} <br/>{{f2.description}} <br/> </span>
+    <!-- <input type="button" value="Add to cart"/> -->
+</span>
+</div>
+<input type="button" value="view all items" (click)="findAllFood()"/> 
